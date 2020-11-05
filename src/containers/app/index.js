@@ -1,13 +1,17 @@
 import React from "react"
 
-import {BrowserRouter as Router} from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom"
+import { Provider } from 'react-redux'
+import { store } from '../../store/ducks'
 
-import Content from './content'
+import Routes from './router'
 
 export default function App() {
   return (
-    <Router>
-      <Content />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Routes />
+      </Router>
+    </Provider>
   )
 }

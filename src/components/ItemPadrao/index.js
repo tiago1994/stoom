@@ -3,7 +3,7 @@ import "./style.css";
 
 function ItemPadrao(props) {
     return (
-        <div className="divItem">
+        <div className="divItem" onClick={() => props.clickItem(props.data)}>
             {!!props.data.suggestion && (
                 <div className="itemSuggestion">Icon</div>
             )}
