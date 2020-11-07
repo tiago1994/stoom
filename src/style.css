@@ -10,25 +10,3 @@ html, body{
     height: 100%;
     width: 100%;
 }
-
-.pageDefault{
-    background-color: #F0F5FB;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.divButton{
-    margin-top: 100px;
-}
-.divButton a{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.divItens{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}

@@ -1,12 +1,11 @@
-import React from "react";
-import "./style.css";
+import React from 'react'
 
-function TopoPagina(props) {
+const TopoPagina = (props) => {
     return (
         <div>
             <h2>{props.texto}</h2>
         </div>
-    );
+    )
 }
 
-export default TopoPagina;
+export default TopoPagina

@@ -1,15 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { saveMassa, readModal } from '../../store/ducks/pedido'
+import messages from '../../utils/messages'
+import ModalDefault from '../../components/ModalDefault'
 import Massa from '../../pages/Massa'
 
-const Massas = () => {
-  const {storeMassas} = useSelector(state => state)
-  
+const Massas = (props) => {
+  const { storeMassas, storePedido } = useSelector(state => state)
+  const dispatch = useDispatch()
+
   const addItem = (item) => {
-    console.log('item', item)
+    if (item.id !== storePedido.massa.id) {
+      dispatch(saveMassa(item))
+    }
   }
 
-  return <Massa massas={storeMassas.dados} clickItem={(item) => addItem(item)} />
+  const checkModal = () => {
+    dispatch(readModal())
+  }
+
+  return (
+    <>
+      {storePedido.promocao && <ModalDefault title={messages.modal_title} description={messages.modal_description} confirmModal={() => checkModal()} />}
+      <Massa massas={storeMassas.dados} itemActive={storePedido.massa} clickItem={(item) => addItem(item)} title_page={messages.title_massas} />
+    </>
+  )
 }
 
 export default Massas

@@ -1,21 +1,20 @@
-import React from "react";
-import ItemDefault from "../../components/ItemPadrao";
-import BotaoProximo from "../../components/BotaoProximo";
-import TopoPagina from "../../components/TopoPagina";
-import "./style.css";
+import React from 'react'
+import ItemDefault from '../../components/ItemPadrao'
+import BotaoProximo from '../../components/BotaoProximo'
+import TopoPagina from '../../components/TopoPagina'
 
-function Massa(props) {
+const Massa = (props) => {
   return (
-    <div className="pageDefault">
-      <TopoPagina texto={"Selecione a sua massa"} />
+    <div className="conteudoPagina">
+      <TopoPagina texto={props.title_page} />
       <div className="divItens">
-        {props.massas.map((massa, key) => <ItemDefault clickItem={(item) => props.clickItem(item)} data={massa} key={key} />)}
+        {props.massas.map((massa, key) => <ItemDefault clickItem={(item) => props.clickItem(item)} itemActive={props.itemActive} data={massa} key={key} />)}
       </div>
       <div className="divButton">
-        <BotaoProximo route={'/tamanho'} title={'Próxima Etapa'} />
+        {props.itemActive.id && <BotaoProximo route={'/tamanho'} title={'Próxima Etapa'} />}
       </div>
     </div>
-  );
+  )
 }
 
-export default Massa;
+export default Massa

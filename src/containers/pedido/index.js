@@ -1,20 +1,37 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { cleanOrder, readModal } from '../../store/ducks/pedido'
+import messages from '../../utils/messages'
+import ModalDefault from '../../components/ModalDefault'
 import Pedido from '../../pages/Pedido'
-import imageMassa from "../../assets/images/massa.png";
-import imageTamanho from "../../assets/images/tamanho.png";
-import imageRecheio from "../../assets/images/recheio.jpg";
-import imageAdicional from "../../assets/images/adicionais.png";
 
-const pedido = () => {
-  const pedido = [
-    { "id": 1, "name": "Integral", "image": imageMassa, "suggestion": true },
-    { "id": 2, "name": "Média", "image": imageTamanho, "suggestion": true },
-    { "id": 3, "name": "Marguerita", "image": imageRecheio, "suggestion": true },
-    { "id": 4, "name": "Bacon", "image": imageAdicional, "suggestion": true }
-  ]
+const Pedidos = () => {
+  const { storePedido } = useSelector(state => state)
+  const dispatch = useDispatch()
+  const history = useHistory()
 
-  return <Pedido pedido={pedido} />
+  useEffect(() => {
+    if (!storePedido.adicional.id) {
+      history.push('/massa')
+    }
+  }, [])
+
+  const buttonPress = () => {
+    dispatch(cleanOrder())
+  }
+
+  const checkModal = () => {
+    dispatch(readModal())
+    history.push('/massa')
+  }
+
+  return (
+    <>
+      {storePedido.promocao&&<ModalDefault title={messages.modal_title_finalizado} description={messages.modal_description_finalizado} confirmModal={() => checkModal()} />}
+      <Pedido pedido={storePedido} buttonPress={() => buttonPress()} title_page={messages.title_pedido} />
+    </>
+  )
 }
 
-export default pedido;
+export default Pedidos

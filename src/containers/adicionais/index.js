@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { saveAdicional, readModal } from '../../store/ducks/pedido'
+import messages from '../../utils/messages'
+import ModalDefault from '../../components/ModalDefault'
+import Adicional from '../../pages/Adicional'
 
-import Adicionais from '../../pages/Adicionais'
+const Adicionais = () => {
+  const { storeAdicionais, storePedido } = useSelector(state => state)
+  const dispatch = useDispatch()
+  const history = useHistory()
 
-const adicionais = () => {
+  useEffect(() => {
+    if (!storePedido.recheio.id) {
+      history.push('/massa')
+    }
+  }, [])
+
   const addItem = (item) => {
-    console.log('item', item)
+    if(item.id !== storePedido.adicional.id){
+      dispatch(saveAdicional(item))
+    }
   }
 
-  return <Adicionais clickItem={(item) => addItem(item)} />
+  const checkModal = () => {
+    dispatch(readModal())
+  }
+
+  return (
+    <>
+      {storePedido.promocao&&<ModalDefault title={messages.modal_title} description={messages.modal_description} confirmModal={() => checkModal()} />}
+      <Adicional adicionais={storeAdicionais.dados} itemActive={storePedido.adicional} clickItem={(item) => addItem(item)} title_page={messages.title_adicional} />
+    </>
+  )
 }
 
-export default adicionais
+export default Adicionais
