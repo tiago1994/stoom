@@ -129,4 +129,19 @@ export default createGlobalStyle`
     .titleModal{
         color: ${props => props.theme.colors.topo}
     }
+
+    .divLoading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, .8);
+        color: #FFF;
+        text-align:  center;
+        height: 100vh;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        z-index: 1;
+    }
 `

@@ -12,7 +12,7 @@ const initialState = {
     massa: {},
     tamanho: {},
     recheio: {},
-    adicional: {}, 
+    adicional: {},
     promocao: false
 }
 
@@ -22,7 +22,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 [action.payload.type]: action.payload.data,
-                promocao: action.payload.data.suggestion?true:false
+                promocao: action.payload.data.suggestion ? true : false
             }
         case Types.CLEAN_ORDER:
             return {
