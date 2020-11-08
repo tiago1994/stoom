@@ -13,3 +13,14 @@
   <li>Criei um arquivo de textos default para o projeto.</li>
   <li>Criei uma parte de temas para o projeto.</li>
 </ul>
+
+
+
+<h3>Atualização</h3>
+<p>Subi algumas melhorias na branch `feature`, tais como:</p>
+<ul>
+  <li>Ajustei para utilizar sempre o memso componente de pages, não precisando utilizar 5 como antes.</li>
+  <li>Apliquei get via axios para consumir os .json.</li>
+  <li>Melhoria geral na store/ducks/pedido.js.</li>
+  <li>Apliquei lazy, Suspense nas rotas.</li>
+</ul>
