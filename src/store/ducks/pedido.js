@@ -5,6 +5,7 @@ export const Types = {
     ADD_ADICIONAL: 'ADD_ADICIONAL',
     CLEAN_ORDER: 'CLEAN_ORDER',
     READ_MODAL: 'READ_MODAL',
+    ADD_INGREDIENTE: 'ADD_INGREDIENTE',
 }
 
 const initialState = {
@@ -17,29 +18,11 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case Types.ADD_MASSA:
+        case Types.ADD_INGREDIENTE:
             return {
                 ...state,
-                massa: action.payload,
-                promocao: action.payload.suggestion?true:false
-            }
-        case Types.ADD_TAMANHO:
-            return {
-                ...state,
-                tamanho: action.payload,
-                promocao: action.payload.suggestion?true:false
-            }
-        case Types.ADD_RECHEIO:
-            return {
-                ...state,
-                recheio: action.payload,
-                promocao: action.payload.suggestion?true:false
-            }
-        case Types.ADD_ADICIONAL:
-            return {
-                ...state,
-                adicional: action.payload,
-                promocao: action.payload.suggestion?true:false
+                [action.payload.type]: action.payload.data,
+                promocao: action.payload.data.suggestion?true:false
             }
         case Types.CLEAN_ORDER:
             return {
@@ -61,31 +44,13 @@ export default function reducer(state = initialState, action) {
 }
 
 
-export function saveMassa(item) {
+export function saveIngrediente(type, item) {
     return {
-        type: Types.ADD_MASSA,
-        payload: item
-    }
-}
-
-export function saveTamanho(item) {
-    return {
-        type: Types.ADD_TAMANHO,
-        payload: item
-    }
-}
-
-export function saveRecheio(item) {
-    return {
-        type: Types.ADD_RECHEIO,
-        payload: item
-    }
-}
-
-export function saveAdicional(item) {
-    return {
-        type: Types.ADD_ADICIONAL,
-        payload: item
+        type: Types.ADD_INGREDIENTE,
+        payload: {
+            type: type,
+            data: item
+        }
     }
 }
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { saveMassa, readModal } from '../../store/ducks/pedido'
+import { saveIngrediente, readModal } from '../../store/ducks/pedido'
 import messages from '../../utils/messages'
 import ModalDefault from '../../components/ModalDefault'
-import Massa from '../../pages/Massa'
+import Ingredientes from '../../pages/Ingredientes'
 
 const Massas = (props) => {
   const { storeMassas, storePedido } = useSelector(state => state)
@@ -11,7 +11,7 @@ const Massas = (props) => {
 
   const addItem = (item) => {
     if (item.id !== storePedido.massa.id) {
-      dispatch(saveMassa(item))
+      dispatch(saveIngrediente  ('massa', item))
     }
   }
 
@@ -22,7 +22,7 @@ const Massas = (props) => {
   return (
     <>
       {storePedido.promocao && <ModalDefault title={messages.modal_title} description={messages.modal_description} confirmModal={() => checkModal()} />}
-      <Massa massas={storeMassas.dados} itemActive={storePedido.massa} clickItem={(item) => addItem(item)} title_page={messages.title_massas} />
+      <Ingredientes dados={storeMassas.dados} itemActive={storePedido.massa} clickItem={(item) => addItem(item)} title_page={messages.title_massas} next={'/tamanho'} titleNext={'Próxima Etapa'} />
     </>
   )
 }

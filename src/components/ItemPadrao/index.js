@@ -4,7 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const ItemPadrao = (props) => {
     return (
-        <div className={props.itemActive.id === props.data.id ? 'divItem divItemActive' : 'divItem'} onClick={() => props.clickItem(props.data)}>
+        <div className={(props.itemActive && props.itemActive.id) === props.data.id ? 'divItem divItemActive' : 'divItem'} onClick={() => props.clickItem(props.data)}>
             {!!props.data.suggestion && (
                 <div className="itemSuggestion">
                     <FontAwesomeIcon icon={faStar} />

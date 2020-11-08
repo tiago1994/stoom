@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { cleanOrder, readModal } from '../../store/ducks/pedido'
 import messages from '../../utils/messages'
 import ModalDefault from '../../components/ModalDefault'
-import Pedido from '../../pages/Pedido'
+import Ingredientes from '../../pages/Ingredientes'
 
 const Pedidos = () => {
   const { storePedido } = useSelector(state => state)
@@ -29,7 +29,11 @@ const Pedidos = () => {
   return (
     <>
       {storePedido.promocao&&<ModalDefault title={messages.modal_title_finalizado} description={messages.modal_description_finalizado} confirmModal={() => checkModal()} />}
-      <Pedido pedido={storePedido} buttonPress={() => buttonPress()} title_page={messages.title_pedido} />
+      <Ingredientes dados={[
+        storePedido.massa, 
+        storePedido.tamanho, 
+        storePedido.recheio, 
+        storePedido.adicional]} buttonPress={() => buttonPress()} clickItem={() => {}} title_page={messages.title_pedido} titleNext={'Ok'} finalizar={true}/>
     </>
   )
 }

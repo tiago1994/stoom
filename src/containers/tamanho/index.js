@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import messages from '../../utils/messages'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { saveTamanho, readModal } from '../../store/ducks/pedido'
+import { saveIngrediente, readModal } from '../../store/ducks/pedido'
 import ModalDefault from '../../components/ModalDefault'
-import Tamanho from '../../pages/Tamanho'
+import Ingredientes from '../../pages/Ingredientes'
 
 const Tamanhos = () => {
   const { storeTamanhos, storePedido } = useSelector(state => state)
@@ -19,7 +19,7 @@ const Tamanhos = () => {
 
   const addItem = (item) => {
     if (item.id !== storePedido.tamanho.id) {
-      dispatch(saveTamanho(item))
+      dispatch(saveIngrediente('tamanho', item))
     }
   }
 
@@ -30,7 +30,7 @@ const Tamanhos = () => {
   return (
     <>
       {storePedido.promocao && <ModalDefault title={messages.modal_title} description={messages.modal_description} confirmModal={() => checkModal()} />}
-      <Tamanho tamanhos={storeTamanhos.dados} itemActive={storePedido.tamanho} clickItem={(item) => addItem(item)} title_page={messages.title_tamanho} />
+      <Ingredientes dados={storeTamanhos.dados} itemActive={storePedido.tamanho} clickItem={(item) => addItem(item)} title_page={messages.title_tamanho} next={'/recheio'} titleNext={'Próxima Etapa'} back={'/massa'} />
     </>
   )
 }
