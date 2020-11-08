@@ -1,0 +1,5 @@
+[
+    {"id": 1, "name": "Bacon", "image": "adicionais.png", "suggestion": false},
+    {"id": 2, "name": "Catupiry", "image": "adicionais.png", "suggestion": true},
+    {"id": 3, "name": "Cheddar", "image": "adicionais.png", "suggestion": false}
+]

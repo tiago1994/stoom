@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { saveIngrediente, readModal } from '../../store/ducks/pedido'
+import { buscaMassas } from '../../store/ducks/massas'
 import messages from '../../utils/messages'
 import ModalDefault from '../../components/ModalDefault'
 import Ingredientes from '../../pages/Ingredientes'
@@ -11,13 +12,17 @@ const Massas = (props) => {
 
   const addItem = (item) => {
     if (item.id !== storePedido.massa.id) {
-      dispatch(saveIngrediente  ('massa', item))
+      dispatch(saveIngrediente('massa', item))
     }
   }
 
   const checkModal = () => {
     dispatch(readModal())
   }
+
+  useEffect(() => {
+    dispatch(buscaMassas())
+  }, [])
 
   return (
     <>

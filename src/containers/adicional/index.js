@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { saveIngrediente, readModal } from '../../store/ducks/pedido'
+import { buscaAdicionais } from '../../store/ducks/adicionais'
 import messages from '../../utils/messages'
 import ModalDefault from '../../components/ModalDefault'
 import Ingredientes from '../../pages/Ingredientes'
@@ -26,6 +27,10 @@ const Adicional = () => {
   const checkModal = () => {
     dispatch(readModal())
   }
+
+  useEffect(() => {
+    dispatch(buscaAdicionais())
+  }, [])
 
   return (
     <>

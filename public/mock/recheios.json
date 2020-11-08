@@ -1,0 +1,11 @@
+[
+    { "id": 1, "name": "Calabresa", "image": "recheio.jpg", "suggestion": false },
+    { "id": 2, "name": "Portuguesa", "image": "recheio.jpg", "suggestion": false },
+    { "id": 3, "name": "Marguerita", "image": "recheio.jpg", "suggestion": false },
+    { "id": 4, "name": "Frango com catupiry", "image": "recheio.jpg", "suggestion": true },
+    { "id": 5, "name": "Muçarela", "image": "recheio.jpg", "suggestion": false },
+    { "id": 6, "name": "Napolitana", "image": "recheio.jpg", "suggestion": false },
+    { "id": 7, "name": "Brigadeiro", "image": "recheio.jpg", "suggestion": false },
+    { "id": 8, "name": "Romeu e Julieta", "image": "recheio.jpg", "suggestion": false },
+    { "id": 9, "name": "Califórnia", "image": "recheio.jpg", "suggestion": false }
+]

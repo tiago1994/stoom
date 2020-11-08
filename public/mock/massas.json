@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "Tradicional", "image": "massa.png", "suggestion": true },
+    { "id": 2, "name": "Integral", "image": "massa.png", "suggestion": false },
+    { "id": 3, "name": "Grãos", "image": "massa.png", "suggestion": false }
+]

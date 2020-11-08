@@ -3,6 +3,7 @@ import messages from '../../utils/messages'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { saveIngrediente, readModal } from '../../store/ducks/pedido'
+import { buscaTamanhos } from '../../store/ducks/tamanhos'
 import ModalDefault from '../../components/ModalDefault'
 import Ingredientes from '../../pages/Ingredientes'
 
@@ -26,6 +27,10 @@ const Tamanhos = () => {
   const checkModal = () => {
     dispatch(readModal())
   }
+
+  useEffect(() => {
+    dispatch(buscaTamanhos())
+  }, [])
 
   return (
     <>

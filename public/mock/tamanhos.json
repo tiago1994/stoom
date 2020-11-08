@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "Pequena", "image": "tamanho.png", "suggestion": false },
+    { "id": 2, "name": "Média", "image": "tamanho.png", "suggestion": true },
+    { "id": 3, "name": "Grande", "image": "tamanho.png", "suggestion": false }
+]

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'  
 
 const ItemPadrao = (props) => {
     return (
@@ -10,7 +10,7 @@ const ItemPadrao = (props) => {
                     <FontAwesomeIcon icon={faStar} />
                 </div>
             )}
-            <div className="divImage"><img src={props.data.image} alt="" className="imageBox" /></div>
+            <div className="divImage"><img src={'images/'+props.data.image} alt="" className="imageBox" /></div>
             <div className="textProduct">{props.data.name}</div>
         </div>
     )

@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
+import thunk from "redux-thunk";
 import storeMassas from './massas'
 import storeTamanhos from './tamanhos'
 import storeRecheios from './recheios'
@@ -13,5 +14,5 @@ const reducers = combineReducers({
     storePedido,
 })
 
-const store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(thunk))
 export { store }
